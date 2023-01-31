@@ -4,9 +4,8 @@ import ballerina/http;
 # bound to port `9090`.
 
 listener http:Listener endpoint1 = new (9090);
-listener http:Listener endopoint2 = new (9091);
 
-service / on endpoint1, endopoint2 {
+service / on endpoint1 {
 
     # A resource for generating greetings
     # + name - the input string name
