@@ -13,10 +13,31 @@ service /a on endpoint1 {
         }
         return "Hello, " + name;
     }
+    
+    resource function get greetingA1(string name) returns string|error {
+        if name is "" {
+            return error("name should not be empty!");
+        }
+        return "Hello, " + name;
+    }
+    
+    resource function get greetingA2(string name) returns string|error {
+        if name is "" {
+            return error("name should not be empty!");
+        }
+        return "Hello, " + name;
+    }
 }
 
 service /b on endpoint2 {
     resource function get greetingB(string name) returns string|error {
+        if name is "" {
+            return error("name should not be empty!");
+        }
+        return "Hello, " + name;
+    }
+    
+    resource function get greetingB1(string name) returns string|error {
         if name is "" {
             return error("name should not be empty!");
         }
