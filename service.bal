@@ -4,14 +4,40 @@ import ballerina/http;
 # bound to port `9090`.
 
 listener http:Listener endpoint1 = new (9090);
+listener http:Listener endpoint2 = new (9091);
 
-service / on endpoint1 {
+service /a on endpoint1 {
+    resource function get greetingA(string name) returns string|error {
+        if name is "" {
+            return error("name should not be empty!");
+        }
+        return "Hello, " + name;
+    }
+    
+    resource function get greetingA1(string name) returns string|error {
+        if name is "" {
+            return error("name should not be empty!");
+        }
+        return "Hello, " + name;
+    }
+    
+    resource function get greetingA2(string name) returns string|error {
+        if name is "" {
+            return error("name should not be empty!");
+        }
+        return "Hello, " + name;
+    }
+}
 
-    # A resource for generating greetings
-    # + name - the input string name
-    # + return - string name with hello message or error
-    resource function get greeting(string name) returns string|error {
-        // Send a response back to the caller.
+service /b on endpoint2 {
+    resource function get greetingB(string name) returns string|error {
+        if name is "" {
+            return error("name should not be empty!");
+        }
+        return "Hello, " + name;
+    }
+    
+    resource function get greetingB1(string name) returns string|error {
         if name is "" {
             return error("name should not be empty!");
         }
